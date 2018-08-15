@@ -94,6 +94,7 @@ int main()
   reverse(s,len);
   str_witout_vowel(s,len);
   isPalindrome("maiham",6);
+   removeDuplicate(s,strlen(s));
     return 0;
 }
 
