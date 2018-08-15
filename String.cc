@@ -10,6 +10,31 @@ Write your code in this editor and press "Run" button to compile and execute it.
 
 #include <string.h>
 using namespace std;
+
+//func to removeduplicates in input string
+void removeDuplicate(char *s,int len)
+{
+    cout<<"original str: "<<s<<endl;
+    char *s_new = new char[len];
+    
+    for(int i=0;i<len;i++)
+    {
+       mark[s[i]]++;
+    }
+    int j=0;
+    for(int i=0;i<len;i++)
+    {
+       if(mark[s[i]] == 1)
+       {
+           s_new[j++]=s[i];
+       }
+    }
+    s_new[j++]='\0';
+    
+    cout<<"unique charracter str: "<<s_new<<endl;
+    delete [] s_new;
+}
+
 //reverse input string
 void reverse(char *s,int len)
 {
