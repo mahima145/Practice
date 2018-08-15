@@ -50,7 +50,7 @@ void isPalindrome(char *s,int len)
     bool isPalindrome = true;
     for(int i=0;i<=len/2;i++)
   {
-      if(s[i] !=s[len--])
+      if(s[i] !=s[--len])
       {
          isPalindrome = false;
          break;
