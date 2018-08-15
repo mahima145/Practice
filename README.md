@@ -1,2 +1,2 @@
-# practiceString
-Programs related to string manipulation
+# practice
+Practice Programs 
