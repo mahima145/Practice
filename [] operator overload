@@ -1,0 +1,60 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+class Array
+{
+    int *ptr;
+    int size;
+    public:
+    Array(int*,int );
+    int &operator [](int);
+    void print();
+    
+};
+Array::Array(int* p=NULL,int s=0)
+{
+    size = s;
+    ptr=NULL;
+    if(s!=0)
+    {
+    ptr = new int[s];
+    for(int i=0;i<s;i++)
+        ptr[i]=p[i];
+    }
+}
+//implementatio of [] operator shall return a reference as array element can be put on left side
+int &Array::operator[](int index)
+{
+    if(index >= size)
+    {
+        cout<<"array indexout of bound"<<endl;
+        exit(0);
+    }
+    return ptr[index];
+}
+void Array::print()
+{
+     for(int i=0;i<size;i++)
+        cout<<ptr[i]<<" ";
+        cout<<endl;
+}
+int main()
+{
+    cout<<"Overload [] operator to check for out of bound"<<endl;
+    int a[]={1,2,5,6};
+    Array a1(a,4);
+    a1[2]=8;
+    a1.print();
+    a1[5]=9;
+    
+
+    return 0;
+}
