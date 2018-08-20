@@ -1,0 +1,76 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+//A class in C++ is said to be Abstarct even if it has one pure virtual func
+//An Interface is an Abstract class having all pure function as pure virual
+class Abstract
+
+{
+    public: 
+    Abstract()
+    {
+        cout<<"I am abstract class..."<<endl;
+    }
+    //pure virtual destructor makes a class abstract
+    virtual ~ Abstract()=0;
+    virtual void print()=0;
+     void show()
+     {
+         cout<<"Abstract show func"<<endl;
+     };
+      
+};
+//defination of pure virtual destructor is required bcz child classes will be destructed first show
+//destruction cannnot be relied on 
+Abstract::~Abstract()
+{
+    cout<<"I am pure virtual destructor.."<<endl;
+}
+    
+class Implement :public Abstract
+{
+    public:
+    Implement()
+    {
+       cout<<"I am Implement class"<<endl;   
+    }
+    ~Implement()
+    {
+        cout<<"Implement destructor is called first bcz destructor is virtual.."<<endl;
+    }
+    void print()
+    {
+        cout<<"print class"<<endl;
+    }
+    void show()
+    {
+        cout<<"show func in Implement class"<<endl;
+    }
+    
+};
+int main()
+{
+    cout<<"....Abstract class scenarios..."<<endl<<endl;
+    //Abstract class pointer and references are allowed
+    Abstract *ptr = new Implement(); //allowed
+    Abstract &ref = *ptr; //allowed
+    //Abstract class object will make a compiler error eg. Abstract obj;
+    ptr->print();
+    ptr->show();
+    
+    delete ptr;
+    
+    cout<<"even when Implement object is created the object destruction will be proper because destructor is also virtual."<<endl<<endl;
+    Implement i;
+    i.show();
+
+    return 0;
+}
